@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Me Page">
+    <title>Contact Me | Rana Zohaik</title>
+    <link rel="stylesheet" href="contact.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="container1">
+            <h2 class="logo">Rana Zohaik</h2>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="testemonial.html">Testimonials</a></li>
+                <li><a href="contact.html" class="active">Contact Me</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Contact Me Section -->
+    <section class="contact-me">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>If you have any questions, project ideas, or just want to say hello, feel free to reach out!</p>
+            
+            <div class="contact-info">
+                <p><strong>📍 Address:</strong> D Town Pharmacy, Daki Chock, Gujrat</p>
+                <p><strong>📧 Email:</strong> <a href="mailto:zohaikrana871@gmail.com">zohaikrana871@gmail.com</a></p>
+                <p><strong>📞 Phone:</strong> <a href="tel:+923275716901">+92 327 5716901</a></p>
+            </div>
+
+            <div class="contact-form">
+                <h3>Send Me a Message</h3>
+                <form action="https://formsubmit.co/zohaikrana871@gmail.com" method="POST">
+                    <input type="hidden" name="_captcha" value="false">  <!-- Disables Captcha -->
+                    <input type="hidden" name="_next" value="contact.html">
+
+                    <label>Your Name <sup>*</sup></label>
+                    <input type="text" name="name" placeholder="Enter your full name" required>
+
+                    <label>Email Address <sup>*</sup></label>
+                    <input type="email" name="email" placeholder="Enter your email address" required>
+
+                    <label>Phone <sup>*</sup></label>
+                    <input type="tel" name="phone" placeholder="Enter your phone number" required>
+
+                    <label>Your Message</label>
+                    <textarea name="message" placeholder="Write your message here..." required></textarea>
+
+                    <input type="submit" value="Send Message">
+                </form>
+            </div>
+        </div>
+    </section>
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <h2 class="footer-logo">Rana Zohaik</h2>
+            <p class="footer-text">Building ideas into reality, one line of code at a time.</p>
+            
+            <ul class="social-icons">
+                <li>
+                    <a href="https://www.facebook.com/rana.zohaik.16" class="social-link" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" width="30">
+                        Facebook
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/zohaikrana/" class="social-link" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="30">
+                        Instagram
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/RanaZohaik" class="social-link" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" width="30">
+                        GitHub
+                    </a>
+                </li>
+            </ul>
+            
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 Rana Zohaik | All Rights Reserved</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Footer Animation Script -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let footer = document.querySelector(".footer");
+        let windowHeight = window.innerHeight;
+
+        function revealFooter() {
+            let footerTop = footer.getBoundingClientRect().top;
+            if (footerTop < windowHeight - 50) {
+                footer.classList.add("visible");
+            }
+        }
+
+        window.addEventListener("scroll", revealFooter);
+        revealFooter(); // Trigger on load
+    });
+</script>
+
+
+    <button id="scrollBtn" onclick="scrollToTop()">⬆ Scroll to Top</button>
+
+    <!-- Script for Scrollup button -->
+    <script>
+        const scrollBtn = document.getElementById("scrollBtn");
+    
+        window.onscroll = function () {
+            if (document.documentElement.scrollTop > 300) {
+                scrollBtn.classList.add("show");
+            } else {
+                scrollBtn.classList.remove("show");
+            }
+        };
+    
+        function scrollToTop() {
+            let start = window.scrollY;
+            let duration = 1000; // Adjust for smoother scroll (1000-1500ms)
+            let startTime = null;
+    
+            function smoothStep(time) {
+                if (!startTime) startTime = time;
+                let progress = Math.min((time - startTime) / duration, 1);
+                let ease = easeOutCubic(progress);
+                window.scrollTo(0, start * (1 - ease));
+    
+                if (progress < 1) {
+                    requestAnimationFrame(smoothStep);
+                }
+            }
+    
+            function easeOutCubic(t) {
+                return 1 - Math.pow(1 - t, 3); // Ultra-smooth easing function
+            }
+    
+            requestAnimationFrame(smoothStep);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Testimonial Page">
+    <title>Testimonials | Rana Zohaik</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fc;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 15px 0;
+            transition: background 0.3s ease-in-out;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            /* Centers content */
+        }
+
+        .navbar .container1 {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Logo */
+        .navbar .logo {
+            font-size: 2rem;
+            color: white;
+            font-weight: bold;
+            letter-spacing: 2px;
+            cursor: pointer;
+        }
+
+        .navbar .logo span {
+            color: #506c9e;
+        }
+
+        /* Navbar Links */
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar ul li {
+            margin-left: 30px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s ease-in-out;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+
+        .navbar ul li a:hover,
+        .navbar ul li a.active {
+            color: #2575fc;
+            background: rgba(37, 117, 252, 0.2);
+        }
+
+        /* Responsive Navbar */
+        @media (max-width: 768px) {
+            .navbar .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                padding-top: 10px;
+            }
+
+            .navbar ul li {
+                margin: 10px 0;
+            }
+        }
+
+        .testimonials {
+            text-align: center;
+            padding: 80px 20px;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 120px auto 40px;
+            padding: 10px 20px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .testimonial-item {
+            background: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .testimonial-item:hover {
+            transform: scale(1.03);
+        }
+
+        .testimonial-text {
+            font-size: 18px;
+            color: #333;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-author {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .testimonial-role {
+            font-size: 16px;
+            color: #777;
+        }
+
+        .testimonial-details {
+            font-size: 14px;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        #scrollBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 16px;
+            font-size: 18px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease, background 0.3s ease;
+        }
+
+        #scrollBtn:hover {
+            background: #0056b3;
+        }
+
+        #scrollBtn.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer Styling */
+        .footer {
+            background: #0a0a0a;
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .footer.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .footer-logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .footer-logo span {
+            color: #007bff;
+        }
+
+        .footer-text {
+            font-size: 16px;
+            margin: 10px 0 20px;
+        }
+
+        .social-icons {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icons {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .social-icons li {
+            display: inline-block;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        /* Background colors for each platform */
+        .social-link.facebook {
+            background-color: #1877F2;
+        }
+
+        .social-link.instagram {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+
+        .social-link.github {
+            background-color: #24292e;
+        }
+
+        /* Icon and Image Styling */
+        .social-link img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+
+        .social-link i {
+            font-size: 20px;
+        }
+
+        /* Hover Effects */
+        .social-link:hover {
+            transform: scale(1.1);
+            opacity: 0.9;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="container1">
+            <h2 class="logo">Rana Zohaik</h2>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="testemonial.html" class="active">Testimonials</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">What People Say About Rana Zohaik</h2>
+            <div class="testimonial-item">
+                <p class="testimonial-text">
+                    <q>Rana Zohaik is a visionary leader whose expertise in technology and business has led to
+                        groundbreaking innovations.</q>
+                </p>
+                <h3 class="testimonial-author">John Doe</h3>
+                <span class="testimonial-role">CEO, Innovate Solutions</span>
+                <p class="testimonial-details">John Doe is a tech entrepreneur who has collaborated with Rana Zohaik on
+                    multiple projects, recognizing his strategic approach and leadership.</p>
+            </div>
+            <div class="testimonial-item">
+                <p class="testimonial-text">
+                    <q>Working with Rana Zohaik has been an enlightening experience. His ability to solve complex
+                        problems and deliver outstanding results is truly remarkable.</q>
+                </p>
+                <h3 class="testimonial-author">Emily Smith</h3>
+                <span class="testimonial-role">Marketing Director, Creative Agency</span>
+                <p class="testimonial-details">Emily Smith is a branding specialist who has worked with Rana Zohaik to
+                    launch successful marketing campaigns worldwide.</p>
+            </div>
+        </div>
+    </div>
+     <!-- Footer Section -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <h2 class="footer-logo">Rana Zohaik</h2>
+            <p class="footer-text">Building ideas into reality, one line of code at a time.</p>
+            
+            <ul class="social-icons">
+                <li>
+                    <a href="https://www.facebook.com/rana.zohaik.16" class="social-link" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" width="30">
+                        Facebook
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/zohaikrana/" class="social-link" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="30">
+                        Instagram
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/RanaZohaik" class="social-link" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" width="30">
+                        GitHub
+                    </a>
+                </li>
+            </ul>
+            
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 Rana Zohaik | All Rights Reserved</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Footer Animation Script -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let footer = document.querySelector(".footer");
+        let windowHeight = window.innerHeight;
+
+        function revealFooter() {
+            let footerTop = footer.getBoundingClientRect().top;
+            if (footerTop < windowHeight - 50) {
+                footer.classList.add("visible");
+            }
+        }
+
+        window.addEventListener("scroll", revealFooter);
+        revealFooter(); // Trigger on load
+    });
+</script>
+
+
+    <button id="scrollBtn" onclick="scrollToTop()">⬆ Scroll to Top</button>
+
+    <!-- Script for Scrollup button -->
+    <script>
+        const scrollBtn = document.getElementById("scrollBtn");
+    
+        window.onscroll = function () {
+            if (document.documentElement.scrollTop > 300) {
+                scrollBtn.classList.add("show");
+            } else {
+                scrollBtn.classList.remove("show");
+            }
+        };
+    
+        function scrollToTop() {
+            let start = window.scrollY;
+            let duration = 1000; // Adjust for smoother scroll (1000-1500ms)
+            let startTime = null;
+    
+            function smoothStep(time) {
+                if (!startTime) startTime = time;
+                let progress = Math.min((time - startTime) / duration, 1);
+                let ease = easeOutCubic(progress);
+                window.scrollTo(0, start * (1 - ease));
+    
+                if (progress < 1) {
+                    requestAnimationFrame(smoothStep);
+                }
+            }
+    
+            function easeOutCubic(t) {
+                return 1 - Math.pow(1 - t, 3); // Ultra-smooth easing function
+            }
+    
+            requestAnimationFrame(smoothStep);
+        }
+    </script>
+</body>
+
+</html>

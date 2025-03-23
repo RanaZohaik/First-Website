@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Portfolio Website</title>
+</head>
+
+<body>
+    <div class="header">
+
+        <!-- Start Slider -->
+
+        <div class="slider">
+            <div class="intro">
+                <h2>Web &amp; Software Develper</h2>
+                <br>
+                <a href="#features" class="smooth-scroll">
+                    <button>Learn More</button>
+                </a>
+                
+
+            </div>
+        </div>
+
+        <!-- End Slider -->
+
+        <!-- Start Navbar -->
+
+        <div class="navbar">
+            <div class="container">
+                <h2 class="logo fl-left">Rana Zohaik</h2>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="resume.html">Resume</a></li>
+                    <li><a href="testemonial.html">Testimonials</a></li>
+                    <li><a href="contact.html">Contact Me</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- End Navbar -->
+
+    </div>
+    <!-- Features Section -->
+    <div class="features" id="features">
+        <div class="container">
+            <h1 class="about-title">Beyond the Code</h1>
+      
+    
+            <div class="features-grid">
+                <div class="feat">
+                    <div class="icon"><i class="fas fa-handshake"></i></div>
+                    <h2>Core Values</h2>
+                    <p>Integrity, creativity, and perseverance define me. These values guide my decisions and actions, 
+                       ensuring I stay authentic while making a positive impact.</p>
+                </div>
+                <div class="feat">
+                    <div class="icon"><i class="fas fa-bullseye"></i></div>
+                    <h2>Ambitions</h2>
+                    <p>I strive for continuous growth, embracing new challenges and refining my craft to create innovative 
+                       solutions that inspire and leave a lasting impact.</p>
+                </div>
+                <div class="feat">
+                    <div class="icon"><i class="fas fa-heart"></i></div>
+                    <h2>Hobbies & Passions</h2>
+                    <p>Exploring creativity through design, photography, and reading keeps me motivated. These passions fuel 
+                       my inspiration and help me see the world differently.</p>
+                </div>
+                <div class="feat">
+                    <div class="icon"><i class="fas fa-laptop-code"></i></div>
+                    <h2>Skills & Expertise</h2>
+                    <p>Proficient in <strong>Software Engineering, and Web Development</strong>. 
+                       I love solving complex problems and optimizing systems.</p>
+                </div>
+                <div class="feat">
+                    <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h2>Education</h2>
+                    <p>Currently pursuing a <strong>Software Engineering degree</strong> at the <strong>University of Gujrat</strong>, 
+                       where I am honing my technical and analytical skills.</p>
+                </div>
+                <div class="feat">
+                    <div class="icon"><i class="fas fa-chart-line"></i></div>
+                    <h2>Business Mindset</h2>
+                    <p>Passionate about <strong>entrepreneurship</strong>. I constantly explore new business ideas, especially in 
+                       the <strong>animal market and skill development</strong>, to create value.</p>
+                </div>
+               
+            </div>
+    
+            <!-- Fun Fact & Interactive Section -->
+            <div class="fun-fact">
+                <h3>Fun Fact About Me</h3>
+                <p><em>I have a habit of talking to myself when brainstorming ideas—it’s like having a built-in think tank! 🤯💡</em></p>
+            </div>
+            
+    
+            <!-- Call to Action -->
+            <div class="cta">
+                <h3>Let's Connect</h3>
+                <p>If you want to collaborate or just have a conversation, feel free to reach out.</p>
+                <a href="contact.html" class="btn">Get in Touch</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <h2 class="footer-logo">Rana Zohaik</h2>
+            <p class="footer-text">Building ideas into reality, one line of code at a time.</p>
+            
+            <ul class="social-icons">
+                <li>
+                    <a href="https://www.facebook.com/rana.zohaik.16" class="social-link" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" width="30">
+                        Facebook
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/zohaikrana/" class="social-link" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" width="30">
+                        Instagram
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/RanaZohaik" class="social-link" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" width="30">
+                        GitHub
+                    </a>
+                </li>
+            </ul>
+            
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 Rana Zohaik | All Rights Reserved</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Footer Animation Script -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let footer = document.querySelector(".footer");
+        let windowHeight = window.innerHeight;
+
+        function revealFooter() {
+            let footerTop = footer.getBoundingClientRect().top;
+            if (footerTop < windowHeight - 50) {
+                footer.classList.add("visible");
+            }
+        }
+
+        window.addEventListener("scroll", revealFooter);
+        revealFooter(); // Trigger on load
+    });
+</script>
+
+
+    <button id="scrollBtn" onclick="scrollToTop()">⬆ Scroll to Top</button>
+
+    <!-- Script for Scrollup button -->
+    <script>
+        const scrollBtn = document.getElementById("scrollBtn");
+    
+        window.onscroll = function () {
+            if (document.documentElement.scrollTop > 300) {
+                scrollBtn.classList.add("show");
+            } else {
+                scrollBtn.classList.remove("show");
+            }
+        };
+    
+        function scrollToTop() {
+            let start = window.scrollY;
+            let duration = 1000; // Adjust for smoother scroll (1000-1500ms)
+            let startTime = null;
+    
+            function smoothStep(time) {
+                if (!startTime) startTime = time;
+                let progress = Math.min((time - startTime) / duration, 1);
+                let ease = easeOutCubic(progress);
+                window.scrollTo(0, start * (1 - ease));
+    
+                if (progress < 1) {
+                    requestAnimationFrame(smoothStep);
+                }
+            }
+    
+            function easeOutCubic(t) {
+                return 1 - Math.pow(1 - t, 2); // Ultra-smooth easing function
+            }
+    
+            requestAnimationFrame(smoothStep);
+        }
+    </script>
+    
+     <!-- Script for learn more button -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll('.smooth-scroll').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+    
+                    const targetId = this.getAttribute("href").substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        let start = window.scrollY;
+                        let end = targetElement.offsetTop - 50;
+                        let duration = 1500; // Adjust this for extra smoothness (1000-2000ms)
+                        let startTime = null;
+    
+                        function smoothStep(time) {
+                            if (!startTime) startTime = time;
+                            let progress = Math.min((time - startTime) / duration, 1);
+                            let ease = easeOutCubic(progress);
+                            window.scrollTo(0, start + (end - start) * ease);
+    
+                            if (progress < 1) {
+                                requestAnimationFrame(smoothStep);
+                            }
+                        }
+    
+                        function easeOutCubic(t) {
+                            return 1 - Math.pow(1 - t, 3); // Easing function for ultra-smooth feel
+                        }
+    
+                        requestAnimationFrame(smoothStep);
+                    }
+                });
+            });
+        });
+    </script>
+    
+</body>
+
+</html>

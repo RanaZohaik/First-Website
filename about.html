@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About page of Rana Zohaik">
+    <title>About | Rana Zohaik</title>
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="about.css">
+</head>
+
+<body>
+
+    <!-- Start Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <h2 class="logo">Rana Zohaik</h2>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About Me</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="testemonial.html">Testimonials</a></li>
+                <li><a href="contact.html">Contact Me</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <!-- Start About Me Section -->
+    <section class="about-me" id="aboutMe">
+        <div class="container">
+            <div class="about-content">
+                <!-- Profile Image -->
+                <div class="about-image">
+                    <img src="mypic.jpeg" alt="Profile Picture">
+                </div>
+
+                <!-- About Info -->
+                <div class="about-info">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="about-description">
+                        Hi, I'm <strong>Rana Zohaik</strong>, a passionate Software Engineer and Web Developer.
+                        I thrive on solving complex problems, optimizing business processes, and creating innovative
+                        solutions.
+                        With a keen eye for design and development, I transform ideas into digital experiences.
+                    </p>
+
+                    <p class="about-description">
+                        My expertise spans from front-end and back-end development to business process engineering and
+                        digital marketing.
+                        I constantly explore new ideas and believe in lifelong learning.
+                    </p>
+
+                    <!-- Skills & Expertise -->
+                    <div class="about-skills">
+                        <div class="skill">
+                            <i class="fas fa-code"></i>
+                            <h3>Web Development</h3>
+                            <p>Building modern, scalable, and responsive web applications.</p>
+                        </div>
+                        <div class="skill">
+                            <i class="fas fa-project-diagram"></i>
+                            <h3>Software Engineering</h3>
+                            <p>Designing and optimizing software systems with best practices.</p>
+                        </div>
+                        <div class="skill">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Business Process Engineering</h3>
+                            <p>Streamlining workflows to enhance efficiency and innovation.</p>
+                        </div>
+                        <div class="skill">
+                            <i class="fas fa-search"></i>
+                            <h3>SEO & Digital Marketing</h3>
+                            <p>Maximizing online reach through effective marketing strategies.</p>
+                        </div>
+                    </div>
+
+                    <!-- Resume Button -->
+                    <a href="resume.pdf" class="btn download-btn" download>Download Resume</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End About Me Section -->
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <h2 class="footer-logo">Rana Zohaik</h2>
+                <p class="footer-text">Building ideas into reality, one line of code at a time.</p>
+
+                <ul class="social-icons">
+                    <li>
+                        <a href="https://www.facebook.com/rana.zohaik.16" class="social-link" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                                alt="Facebook" width="30">
+                            Facebook
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/zohaikrana/" class="social-link" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                                alt="Instagram" width="30">
+                            Instagram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/RanaZohaik" class="social-link" target="_blank">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+                                alt="GitHub" width="30">
+                            GitHub
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Rana Zohaik | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Footer Animation Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let footer = document.querySelector(".footer");
+            let windowHeight = window.innerHeight;
+
+            function revealFooter() {
+                let footerTop = footer.getBoundingClientRect().top;
+                if (footerTop < windowHeight - 50) {
+                    footer.classList.add("visible");
+                }
+            }
+
+            window.addEventListener("scroll", revealFooter);
+            revealFooter(); // Trigger on load
+        });
+    </script>
+
+
+    <button id="scrollBtn" onclick="scrollToTop()">⬆ Scroll to Top</button>
+
+    <!-- Script for Scrollup button -->
+    <script>
+        const scrollBtn = document.getElementById("scrollBtn");
+
+        window.onscroll = function () {
+            if (document.documentElement.scrollTop > 300) {
+                scrollBtn.classList.add("show");
+            } else {
+                scrollBtn.classList.remove("show");
+            }
+        };
+
+        function scrollToTop() {
+            let start = window.scrollY;
+            let duration = 1000; // Adjust for smoother scroll (1000-1500ms)
+            let startTime = null;
+
+            function smoothStep(time) {
+                if (!startTime) startTime = time;
+                let progress = Math.min((time - startTime) / duration, 1);
+                let ease = easeOutCubic(progress);
+                window.scrollTo(0, start * (1 - ease));
+
+                if (progress < 1) {
+                    requestAnimationFrame(smoothStep);
+                }
+            }
+
+            function easeOutCubic(t) {
+                return 1 - Math.pow(1 - t, 3); // Ultra-smooth easing function
+            }
+
+            requestAnimationFrame(smoothStep);
+        }
+    </script>
+
+</body>
+
+</html>
